@@ -30,3 +30,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+// Improve menu behavior: close on Escape/scroll
+document.addEventListener('keydown', (e)=>{
+  const list = document.querySelector('nav ul');
+  const toggle = document.querySelector('.menu-toggle');
+  if(e.key === 'Escape' && list && toggle){
+    list.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+});
+window.addEventListener('scroll', ()=>{
+  const list = document.querySelector('nav ul');
+  const toggle = document.querySelector('.menu-toggle');
+  if(list && toggle){
+    list.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+});
