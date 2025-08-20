@@ -83,3 +83,25 @@ footer{margin-top:64px;border-top:1px solid var(--border);background:var(--bg-2)
   }
   nav a:hover{background:#1f2126}
 }
+
+
+/* --- Mobile header refinement v3 --- */
+@media (max-width: 800px){
+  /* Use a tidy grid so logo/text can take more width */
+  .header .container.nav{
+    display:grid;
+    grid-template-columns: 1fr auto; /* logo/text grows, menu button snug */
+    align-items:center;
+    gap:16px;
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+  .logo{min-width:0}
+  .logo img{height:40px}              /* slight bump for visibility */
+  .logo .brand{font-size:18px}        /* widen visual weight */
+  .logo .muted{font-size:14px}
+  /* Popover sits a bit lower so first item isn't overlapped by the button */
+  nav ul{ top: 90px; }                 /* was 62px */
+  /* Slightly larger tap targets inside popover */
+  nav a{ padding:14px 16px; font-size:16px }
+}
