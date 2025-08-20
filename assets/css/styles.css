@@ -9,7 +9,7 @@ a{color:var(--text);text-decoration:none}a:hover{opacity:.9}
 .container{max-width:1200px;margin:0 auto;padding:24px}
 .header{position:sticky;top:0;background:linear-gradient(180deg, rgba(10,10,11,0.95) 0%, rgba(10,10,11,0.85) 100%);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);z-index:20}
 .nav{display:flex;align-items:center;gap:20px;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:14px}.logo img{height:44px}.brand{font-weight:800;letter-spacing:0.4px}.muted{color:var(--muted)}
+.logo{display:flex;align-items:center;gap:14px}.logo img{height:100px}.brand{font-weight:800;letter-spacing:0.4px}.muted{color:var(--muted)}
 .badge{padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--yellow));color:#111;font-weight:700}
 nav ul{list-style:none;display:flex;gap:14px;margin:0;padding:0;flex-wrap:wrap}
 nav a{padding:10px 12px;border-radius:10px;border:1px solid transparent}
