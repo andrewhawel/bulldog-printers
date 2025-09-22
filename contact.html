@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Bulldog Printers</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="Bulldog Printers logo" class="logo" />
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg> Menu
+      </button>
+      <nav>
+        <ul id="primary-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="business-cards.html">Business cards</a></li>
+          <li><a href="marketing-products.html">Marketing products</a></li>
+          <li><a href="signs-banners.html">Signs & banners</a></li>
+          <li><a href="boxes-packaging.html">Boxes & packaging</a></li>
+          <li><a href="roll-labels-stickers.html">Roll labels & stickers</a></li>
+          <li><a href="promo-products.html">Promo products</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Contact Bulldog Printers</h1>
+    <p>Tell us about your project and we’ll get back to you with a quote.</p>
+
+    <form action="https://formspree.io/f/mqakzdkj" method="POST" class="contact-form">
+      <input type="hidden" name="_next" value="thank-you.html">
+      <label>Full Name<input type="text" name="name" required></label>
+      <label>Email<input type="email" name="_replyto" required></label>
+      <label>Phone Number<input type="tel" name="phone"></label>
+      <label>Company / Organization<input type="text" name="company"></label>
+      <label>Product Type
+        <select name="product">
+          <option value="Business cards">Business cards</option>
+          <option value="Flyers / Brochures">Flyers / Brochures</option>
+          <option value="Signs / Banners">Signs & Banners</option>
+          <option value="Boxes / Packaging">Boxes & Packaging</option>
+          <option value="Roll Labels / Stickers">Roll Labels & Stickers</option>
+          <option value="Promo Products">Promo Products</option>
+          <option value="3D Printing">3D Printing</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+      <label>Quantity<input type="number" name="quantity" min="1"></label>
+      <label>Preferred Paper/Material<input type="text" name="material"></label>
+      <label>Deadline<input type="date" name="deadline"></label>
+      <label>Project Details<textarea name="details" rows="5"></textarea></label>
+      <button type="submit">Send Request</button>
+    </form>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
