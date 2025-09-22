@@ -35,8 +35,11 @@
     <h1>Contact Bulldog Printers</h1>
     <p>Tell us about your project and we’ll get back to you with a quote.</p>
 
-    <form action="https://formspree.io/f/mqakzdkj" method="POST" class="contact-form">
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
       <input type="hidden" name="_next" value="thank-you.html">
+      <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="redirect" value="thank-you.html">
+      <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
       <label>Full Name<input type="text" name="name" required></label>
       <label>Email<input type="email" name="_replyto" required></label>
       <label>Phone Number<input type="tel" name="phone"></label>
