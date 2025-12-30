@@ -37,17 +37,13 @@
     <h1>Contact Bulldog Printers</h1>
     <p>Tell us about your project and we’ll get back to you with a quote.</p>
 
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-      <input type="hidden" name="_next" value="thank-you.html">
-      <input type="hidden" name="form-name" value="contact">
-      <input type="hidden" name="redirect" value="thank-you.html">
-      <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
-      <label>Full Name<input type="text" name="name" required></label>
-      <label>Email<input type="email" name="_replyto" required></label>
-      <label>Phone Number<input type="tel" name="phone"></label>
-      <label>Company / Organization<input type="text" name="company"></label>
+    <form id="contact-form" class="contact-form">
+      <label>Full Name<input type="text" id="name" required></label>
+      <label>Email<input type="email" id="email" required></label>
+      <label>Phone Number<input type="tel" id="phone"></label>
+      <label>Company / Organization<input type="text" id="company"></label>
       <label>Product Type
-        <select name="product">
+        <select id="product">
           <option value="Business cards">Business cards</option>
           <option value="Flyers / Brochures">Flyers / Brochures</option>
           <option value="Signs / Banners">Signs & Banners</option>
@@ -58,10 +54,10 @@
           <option value="Other">Other</option>
         </select>
       </label>
-      <label>Quantity<input type="number" name="quantity" min="1"></label>
-      <label>Preferred Paper/Material<input type="text" name="material"></label>
-      <label>Deadline<input type="date" name="deadline"></label>
-      <label>Project Details<textarea name="details" rows="5"></textarea></label>
+      <label>Quantity<input type="number" id="quantity" min="1"></label>
+      <label>Preferred Paper/Material<input type="text" id="material"></label>
+      <label>Deadline<input type="date" id="deadline"></label>
+      <label>Project Details<textarea id="details" rows="5"></textarea></label>
       <button type="submit">Send Request</button>
     </form>
   </main>
