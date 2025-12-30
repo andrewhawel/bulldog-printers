@@ -1,21 +1,44 @@
 // Make functions globally accessible
 console.log('Main.js loaded successfully');
-window.buildMailto = function(subject, body){
-  const s = encodeURIComponent(subject);
-  const b = encodeURIComponent(body);
-  return `mailto:bulldogprinters@gmail.com?subject=${s}&body=${b}`;
+
+// Universal email function - tries mailto, falls back to Gmail web interface
+window.sendEmail = function(subject, body){
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
+
+  // Build both URLs
+  const mailto = `mailto:bulldogprinters@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+  const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=bulldogprinters@gmail.com&su=${encodedSubject}&body=${encodedBody}`;
+
+  // Try mailto first (works for users with email client configured)
+  window.location.href = mailto;
+
+  // Fallback: After a short delay, if still on same page, open Gmail
+  // This helps users without configured email clients
+  setTimeout(() => {
+    if (confirm('No email client detected.\n\nClick OK to open Gmail\nor Cancel to copy the email address.')) {
+      window.open(gmail, '_blank');
+    } else {
+      // Copy email to clipboard as fallback
+      navigator.clipboard.writeText('bulldogprinters@gmail.com').then(() => {
+        alert('Email address copied: bulldogprinters@gmail.com');
+      }).catch(() => {
+        alert('Email: bulldogprinters@gmail.com');
+      });
+    }
+  }, 1000);
 }
 
 window.quickQuote = function(product){
   const subject = `Quote request: ${product} (Bulldog Printers)`;
   const body = `Hi Bulldog Printers,\n\nI'm looking for a quote on: ${product}.\nQuantity: ____\nSize/Specs: ____\nPaper/Material: ____\nFinishing (if any): ____\nShipping city/state: ____\nDeadline (if any): ____\n\nMy name:\nMy company:\nMy phone:\n\nThanks!`;
-  window.location.href = window.buildMailto(subject, body);
+  window.sendEmail(subject, body);
 }
 
 window.specHelp = function(product){
   const subject = `Spec help needed: ${product} (Bulldog Printers)`;
   const body = `Hello,\n\nI'm interested in ${product} but could use some help.\n\nCan you call me at: ____\n\nMy name:\nMy email:\nBest time to call:\n\nThanks!`;
-  window.location.href = window.buildMailto(subject, body);
+  window.sendEmail(subject, body);
 }
 /* Mobile menu toggle */
 document.addEventListener('DOMContentLoaded', () => {
@@ -67,7 +90,7 @@ Deadline: ${deadline}
 Project Details:
 ${details}`;
 
-      window.location.href = buildMailto(subject, body);
+      window.sendEmail(subject, body);
     });
   }
 });
