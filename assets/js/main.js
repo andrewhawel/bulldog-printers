@@ -10,23 +10,37 @@ window.sendEmail = function(subject, body){
   const mailto = `mailto:bulldogprinters@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
   const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=bulldogprinters@gmail.com&su=${encodedSubject}&body=${encodedBody}`;
 
+  // Track if page loses focus (mailto opened successfully)
+  let mailtoWorked = false;
+
+  const onBlur = () => {
+    mailtoWorked = true;
+    window.removeEventListener('blur', onBlur);
+  };
+
+  window.addEventListener('blur', onBlur);
+
   // Try mailto first (works for users with email client configured)
   window.location.href = mailto;
 
-  // Fallback: After a short delay, if still on same page, open Gmail
-  // This helps users without configured email clients
+  // Fallback: After a delay, if mailto didn't work, offer alternatives
   setTimeout(() => {
-    if (confirm('No email client detected.\n\nClick OK to open Gmail\nor Cancel to copy the email address.')) {
-      window.open(gmail, '_blank');
-    } else {
-      // Copy email to clipboard as fallback
-      navigator.clipboard.writeText('bulldogprinters@gmail.com').then(() => {
-        alert('Email address copied: bulldogprinters@gmail.com');
-      }).catch(() => {
-        alert('Email: bulldogprinters@gmail.com');
-      });
+    window.removeEventListener('blur', onBlur);
+
+    // Only show dialog if mailto didn't work
+    if (!mailtoWorked) {
+      if (confirm('Click OK to open Gmail\nor Cancel to copy the email address.')) {
+        window.open(gmail, '_blank');
+      } else {
+        // Copy email to clipboard as fallback
+        navigator.clipboard.writeText('bulldogprinters@gmail.com').then(() => {
+          alert('Email address copied: bulldogprinters@gmail.com');
+        }).catch(() => {
+          alert('Email: bulldogprinters@gmail.com');
+        });
+      }
     }
-  }, 1000);
+  }, 1500);
 }
 
 window.quickQuote = function(product){
