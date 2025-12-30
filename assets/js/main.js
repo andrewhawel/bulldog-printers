@@ -2,7 +2,7 @@
 function buildMailto(subject, body){
   const s = encodeURIComponent(subject);
   const b = encodeURIComponent(body);
-  return `mailto:andy@maimports.com?subject=${s}&body=${b}`;
+  return `mailto:bulldogprinters@gmail.com?subject=${s}&body=${b}`;
 }
 function quickQuote(product){
   const subject = `Quote request: ${product} (Bulldog Printers)`;
