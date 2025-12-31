@@ -130,7 +130,6 @@ footer{margin-top:64px;border-top:1px solid var(--border);background:var(--bg-2)
   padding:10px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:var(--card);color:var(--text)
 }
 .contact-form input[type="date"]{
-  color-scheme:dark;
   cursor:pointer;
 }
 .contact-form input[type="date"]::-webkit-calendar-picker-indicator{
