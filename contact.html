@@ -37,10 +37,19 @@
     <h1>Contact Bulldog Printers</h1>
     <p>Tell us about your project and we'll get back to you with a quote.</p>
 
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" action="/contact-success.html">
-      <!-- Honeypot field for spam protection -->
-      <input type="hidden" name="form-name" value="contact">
-      <label class="hidden">Don't fill this out if you're human: <input name="bot-field"></label>
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+      <!-- Web3Forms access key -->
+      <input type="hidden" name="access_key" value="1472bc88-bdde-4416-bdf1-a46b8ba5ecb1">
+
+      <!-- Send to your email -->
+      <input type="hidden" name="subject" value="New Quote Request from Bulldog Printers Website">
+      <input type="hidden" name="from_name" value="Bulldog Printers Contact Form">
+
+      <!-- Redirect after successful submission -->
+      <input type="hidden" name="redirect" value="/contact-success.html">
+
+      <!-- Honeypot spam protection -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
       <label>Full Name<input type="text" name="name" required></label>
       <label>Email<input type="email" name="email" required></label>
