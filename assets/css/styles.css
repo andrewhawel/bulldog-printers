@@ -120,6 +120,7 @@ footer{margin-top:64px;border-top:1px solid var(--border);background:var(--bg-2)
 /* Contact form styles */
 .contact-form{display:flex;flex-direction:column;gap:14px;max-width:600px;margin-top:20px}
 .contact-form label{display:flex;flex-direction:column;font-weight:600}
+.contact-form label.hidden{display:none}
 .contact-form input,.contact-form select,.contact-form textarea{
   padding:10px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:var(--card);color:var(--text)
 }

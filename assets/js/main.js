@@ -75,38 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle contact form submission
-  const contactForm = document.getElementById('contact-form');
-  if(contactForm){
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const company = document.getElementById('company').value;
-      const product = document.getElementById('product').value;
-      const quantity = document.getElementById('quantity').value;
-      const material = document.getElementById('material').value;
-      const deadline = document.getElementById('deadline').value;
-      const details = document.getElementById('details').value;
-
-      const subject = `Contact Form: ${product} - ${name}`;
-      const body = `Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Company: ${company}
-
-Product Type: ${product}
-Quantity: ${quantity}
-Preferred Material: ${material}
-Deadline: ${deadline}
-
-Project Details:
-${details}`;
-
-      window.sendEmail(subject, body);
-    });
-  }
+  // Contact form now handled by Netlify Forms - no JavaScript needed!
 });
 
 
