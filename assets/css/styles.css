@@ -129,6 +129,14 @@ footer{margin-top:64px;border-top:1px solid var(--border);background:var(--bg-2)
 .contact-form input,.contact-form select,.contact-form textarea{
   padding:10px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:var(--card);color:var(--text)
 }
+.contact-form input[type="date"]{
+  color-scheme:dark;
+  cursor:pointer;
+}
+.contact-form input[type="date"]::-webkit-calendar-picker-indicator{
+  cursor:pointer;
+  filter:invert(1);
+}
 .contact-form button{
   background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--yellow));
   color:#111;padding:14px 18px;border:none;border-radius:10px;cursor:pointer;font-size:16px;font-weight:700;min-height:44px;transition:all .2s ease;box-shadow:0 4px 16px rgba(0,181,226,.25)
