@@ -76,6 +76,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Contact form now handled by Netlify Forms - no JavaScript needed!
+
+  // Lightbox for product images
+  const productImages = document.querySelectorAll('.product-img');
+  productImages.forEach(img => {
+    img.addEventListener('click', () => {
+      const lightbox = document.createElement('div');
+      lightbox.className = 'lightbox';
+      lightbox.innerHTML = `
+        <div class="lightbox-content">
+          <img src="${img.src}" alt="${img.alt}">
+          <button class="lightbox-close" aria-label="Close">&times;</button>
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+
+      // Close on click outside, close button, or Escape key
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+          lightbox.remove();
+        }
+      });
+
+      const closeOnEscape = (e) => {
+        if (e.key === 'Escape') {
+          lightbox.remove();
+          document.removeEventListener('keydown', closeOnEscape);
+        }
+      };
+      document.addEventListener('keydown', closeOnEscape);
+    });
+  });
 });
 
 
